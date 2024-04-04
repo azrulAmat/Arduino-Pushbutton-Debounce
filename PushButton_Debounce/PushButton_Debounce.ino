@@ -7,7 +7,6 @@ unsigned char sw1_stat;
 void setup() {
   pinMode(SW1,INPUT_PULLUP);
   Serial.begin(38400);
-  lowcntr=0;
   sw1_stat=0;
 }
 
