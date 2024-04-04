@@ -1,7 +1,7 @@
 #define SW1 8
 #define dbounceDelay 40
 
-unsigned long lowcntr;
+unsigned long lowtrigtime;
 unsigned char sw1_stat;
 
 void setup() {
@@ -17,10 +17,10 @@ void loop() {
 
   if(sw1==0){
     if(sw1_stat==0){
-      lowcntr=millis();
+      lowtrigtime=millis();
       sw1_stat=1;
     }
-    else if(millis()-lowcntr > dbounceDelay && sw1_stat != 2){
+    else if(millis()-lowtrigtime > dbounceDelay && sw1_stat != 2){
       Serial.println("SW-Pressed");
       sw1_stat=2;
     }
